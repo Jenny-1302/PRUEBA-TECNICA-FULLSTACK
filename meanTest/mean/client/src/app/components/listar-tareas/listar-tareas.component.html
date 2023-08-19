@@ -1,0 +1,59 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <div class="card">
+        <div class="card-body text-center">
+          <div class="container text-center">
+            <div class="row">
+              <h1 class="titulo">Lista de tareas</h1>
+            </div>
+            <div class="row">
+              <div class="col-4">
+                <div class="input-group-append" >
+                  <span class="input-group-text">
+                    <i class="fas fa-search"></i>
+                    <div class="col-10">
+                      <mat-select class="form-control" [(ngModel)]="selectedFilter" (ngModelChange)="obtenerTareas()">
+                        <mat-option value="all">Todas las tareas</mat-option>
+                        <mat-option value="pendientes">Tareas pendientes</mat-option>
+                        <mat-option value="completadas">Tareas completadas</mat-option>
+                      </mat-select>
+                    </div>
+                  </span>
+                </div>
+              </div>
+              <div class="col iconStyle">
+                <button class="btn btn-success float-end" routerLink="/crear-tarea">Nuevo</button>
+              </div>
+            </div>
+          </div>
+
+          <table mat-table *ngIf="listTareas.length > 0" class="table table-striped mt-3">
+            <thead>
+              <tr>
+                <th mat-header-cell scope="col">Tarea</th>
+                <th mat-header-cell scope="col">Descripción</th>
+                <th mat-header-cell scope="col">Estatus</th>
+                <th mat-header-cell scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let tarea of listTareas">
+                <td mat-cell>{{tarea.element}}</td>
+                <td mat-cell>{{tarea.descripcion}}</td>
+                <td mat-cell>{{tarea.status}}</td>
+                <td mat-cell>
+                  <i [routerLink]="['/editar-tarea',tarea._id]" class="fa-regular fa-pen-to-square text-primary"></i>
+                  <i (click)="deleteTarea(tarea._id)" class="fa-solid fa-trash-can text-danger"></i>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+
+          <h5 style="text-align: start; margin-top:10px " *ngIf="listTareas.length == 0">No hay tareas para mostrar</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

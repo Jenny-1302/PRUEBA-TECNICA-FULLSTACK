@@ -1,0 +1,24 @@
+.fa-solid{
+    cursor: pointer;
+    margin-left:11px;
+    font-size: 25px;
+}
+
+.fa-regular{
+    cursor: pointer;
+    margin-left:11px;
+    font-size: 25px;
+}
+
+.titulo{
+    font-size: 40px;
+    color: rgb(20, 3, 16);
+    font-family:  'Dosis', sans-serif; 
+    margin-bottom: 40px;
+    margin-top: 20px;
+  }
+
+
+.iconStyle{
+    margin-top: 15px;
+}
